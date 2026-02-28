@@ -47,6 +47,9 @@ export function SalesTable({ sales, onEdit, onDelete }: SalesTableProps) {
             <TableHead className="text-right">
               Total Cost ({CURRENCY})
             </TableHead>
+            <TableHead className="text-right">
+              Nett Earnings ({CURRENCY})
+            </TableHead>
             <TableHead className="text-right">Avg Cost ({CURRENCY})</TableHead>
             <TableHead className="text-right">Qty on Hand</TableHead>
             <TableHead className="w-[100px]">Actions</TableHead>
@@ -80,11 +83,14 @@ export function SalesTable({ sales, onEdit, onDelete }: SalesTableProps) {
                 <TableCell className="text-right">
                   <span
                     className={
-                      profit >= 0 ? "text-green-600" : "text-destructive"
+                      profit >= 0 ? "text-green-600 font-medium" : "text-destructive font-medium"
                     }
                   >
-                    {row.averageCost.toFixed(2)}
+                    {profit.toFixed(2)}
                   </span>
+                </TableCell>
+                <TableCell className="text-right">
+                  {row.averageCost.toFixed(2)}
                 </TableCell>
                 <TableCell className="text-right">
                   {row.quantityOnHand}

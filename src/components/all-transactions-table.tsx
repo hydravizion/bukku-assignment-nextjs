@@ -52,6 +52,9 @@ export function AllTransactionsTable({
             <TableHead className="text-right">
               Total Cost ({CURRENCY})
             </TableHead>
+            <TableHead className="text-right">
+              Nett Earnings ({CURRENCY})
+            </TableHead>
             <TableHead className="text-right">Avg Cost ({CURRENCY})</TableHead>
             <TableHead className="text-right">Qty on Hand</TableHead>
             <TableHead className="text-right">
@@ -63,6 +66,9 @@ export function AllTransactionsTable({
         <TableBody>
           {computed.map((row) => {
             const isPurchase = row.transaction.type === "purchase";
+            const nettEarnings = isPurchase
+              ? null
+              : row.totalAmount - row.totalCost;
             return (
               <TableRow key={row.transaction.id}>
                 <TableCell className="font-medium">
@@ -90,6 +96,21 @@ export function AllTransactionsTable({
                 </TableCell>
                 <TableCell className="text-right">
                   {isPurchase ? "—" : row.totalCost.toFixed(2)}
+                </TableCell>
+                <TableCell className="text-right">
+                  {nettEarnings !== null ? (
+                    <span
+                      className={
+                        nettEarnings >= 0
+                          ? "text-green-600 font-medium"
+                          : "text-destructive font-medium"
+                      }
+                    >
+                      {nettEarnings.toFixed(2)}
+                    </span>
+                  ) : (
+                    "—"
+                  )}
                 </TableCell>
                 <TableCell className="text-right">
                   {row.averageCost.toFixed(2)}

@@ -52,12 +52,17 @@ export function Dashboard() {
   }
 
   const existingDates = transactions.map((t) => t.date);
+  const totalNettEarnings = sales.reduce(
+    (sum, row) => sum + (row.totalAmount - row.totalCost),
+    0
+  );
 
   return (
     <div className="space-y-6">
       <InventorySummary
         inventory={inventory}
         totalTransactions={transactions.length}
+        totalNettEarnings={totalNettEarnings}
       />
 
       <div className="grid gap-6 lg:grid-cols-2">

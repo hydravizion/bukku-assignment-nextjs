@@ -7,14 +7,16 @@ import { CURRENCY } from "@/lib/constants";
 interface InventorySummaryProps {
   inventory: InventoryState;
   totalTransactions: number;
+  totalNettEarnings: number;
 }
 
 export function InventorySummary({
   inventory,
   totalTransactions,
+  totalNettEarnings,
 }: InventorySummaryProps) {
   return (
-    <div className="grid gap-4 md:grid-cols-4">
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
       <Card>
         <CardHeader className="pb-2">
           <CardTitle className="text-muted-foreground text-sm font-medium">
@@ -48,6 +50,23 @@ export function InventorySummary({
         <CardContent>
           <p className="text-2xl font-bold">
             {CURRENCY} {inventory.averageCost.toFixed(2)}
+          </p>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader className="pb-2">
+          <CardTitle className="text-muted-foreground text-sm font-medium">
+            Total Nett Earnings
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p
+            className={`text-2xl font-bold ${
+              totalNettEarnings >= 0 ? "text-green-600" : "text-destructive"
+            }`}
+          >
+            {CURRENCY} {totalNettEarnings.toFixed(2)}
           </p>
         </CardContent>
       </Card>
