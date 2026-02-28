@@ -2,6 +2,10 @@
 
 Frontend assignment implementation for tracking single-product purchase and sales transactions using the **Weighted Average Cost (WAC)** method.
 
+## Live URL
+
+https://shabil-bukku-assignment-nextjs.vercel.app
+
 ## Tech Stack
 
 | Layer         | Technology                  |
