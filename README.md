@@ -6,6 +6,10 @@ Frontend assignment implementation for tracking single-product purchase and sale
 
 https://shabil-bukku-assignment-nextjs.vercel.app
 
+## Video Guide on Youtube
+
+https://youtu.be/752EHc35zXg?si=wRLOFo0DRtVtexfU
+
 ## Tech Stack
 
 | Layer         | Technology                  |
