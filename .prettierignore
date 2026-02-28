@@ -1,0 +1,18 @@
+# dependencies
+node_modules
+.pnp
+.pnp.js
+
+# build
+.next
+out
+build
+dist
+
+# lock files
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# generated
+next-env.d.ts
